@@ -1,0 +1,271 @@
+[
+  {
+    "Region": "North",
+    "Sales": 1200,
+    "Date": "2024-01-01"
+  },
+  {
+    "Region": "South",
+    "Sales": "",
+    "Date": "1/2/24"
+  },
+  {
+    "Region": "",
+    "Sales": 1500,
+    "Date": "2024/01/03"
+  },
+  {
+    "Region": "West",
+    "Sales": 2000,
+    "Date": ""
+  },
+  {
+    "Region": "North",
+    "Sales": null,
+    "Date": "2024-01-05"
+  },
+  {
+    "Region": null,
+    "Sales": 1700,
+    "Date": "2024-01-06"
+  },
+  {
+    "Region": "East",
+    "Sales": 3000,
+    "Date": null
+  },
+  {
+    "Region": "West",
+    "Sales": "2500.00",
+    "Date": "08-01-2024"
+  },
+
+  {
+    "Region": "North",
+    "Sales": "1,100",
+    "Date": "2024-02-01"
+  },
+  {
+    "Region": "South",
+    "Sales": 700,
+    "Date": "02/02/24"
+  },
+  {
+    "Region": "East",
+    "Sales": null,
+    "Date": "2024-02-03"
+  },
+  {
+    "Region": "West",
+    "Sales": "2200",
+    "Date": null
+  },
+  {
+    "Region": "North",
+    "Sales": "",
+    "Date": ""
+  },
+  {
+    "Region": null,
+    "Sales": "1600.50",
+    "Date": "2024-02-06"
+  },
+  {
+    "Region": "East",
+    "Sales": "2,800",
+    "Date": "2024/02/07"
+  },
+  {
+    "Region": "West",
+    "Sales": 2600,
+    "Date": ""
+  },
+
+  {
+    "Region": "North",
+    "Sales": 1300,
+    "Date": "2024-3-01"
+  },
+  {
+    "Region": "South",
+    "Sales": null,
+    "Date": "03/02/2024"
+  },
+  {
+    "Region": "",
+    "Sales": 1600,
+    "Date": "2024-03-03"
+  },
+  {
+    "Region": "West",
+    "Sales": "",
+    "Date": "03-04-24"
+  },
+  {
+    "Region": null,
+    "Sales": null,
+    "Date": null
+  },
+
+  {
+    "Region": "North",
+    "Sales": "1 250",
+    "Date": "2024-04-01"
+  },
+  {
+    "Region": "South",
+    "Sales": "850.0",
+    "Date": "4/2/24"
+  },
+  {
+    "Region": "East",
+    "Sales": "",
+    "Date": ""
+  },
+  {
+    "Region": "",
+    "Sales": "1700",
+    "Date": "2024-04-04"
+  },
+  {
+    "Region": "South",
+    "Sales": 1650,
+    "Date": null
+  },
+
+  {
+    "Region": "North",
+    "Sales": "",
+    "Date": "2024-5-01"
+  },
+  {
+    "Region": "South",
+    "Sales": 950,
+    "Date": ""
+  },
+  {
+    "Region": null,
+    "Sales": 1900,
+    "Date": "05/03/2024"
+  },
+  {
+    "Region": "West",
+    "Sales": null,
+    "Date": "2024-05-04"
+  },
+  {
+    "Region": "",
+    "Sales": "",
+    "Date": ""
+  },
+
+  {
+    "Region": "North",
+    "Sales": null,
+    "Date": "2024-06-01"
+  },
+  {
+    "Region": "South",
+    "Sales": "1000",
+    "Date": "6-2-2024"
+  },
+  {
+    "Region": "East",
+    "Sales": 2000,
+    "Date": null
+  },
+  {
+    "Region": "West",
+    "Sales": "2600.00",
+    "Date": "2024/06/04"
+  },
+  {
+    "Region": null,
+    "Sales": "",
+    "Date": ""
+  },
+
+  {
+    "Region": "North",
+    "Sales": "1400",
+    "Date": "2024-07-01"
+  },
+  {
+    "Region": "South",
+    "Sales": "",
+    "Date": "07/02/2024"
+  },
+  {
+    "Region": "East",
+    "Sales": "2,200",
+    "Date": "2024-07-03"
+  },
+  {
+    "Region": "West",
+    "Sales": "",
+    "Date": "2024-7-04"
+  },
+
+  {
+    "Region": "",
+    "Sales": "1350",
+    "Date": "2024/08/01"
+  },
+  {
+    "Region": "South",
+    "Sales": null,
+    "Date": ""
+  },
+  {
+    "Region": "East",
+    "Sales": "2800",
+    "Date": "01-08-2024"
+  },
+  {
+    "Region": "West",
+    "Sales": "3000",
+    "Date": null
+  },
+
+  {
+    "Region": "North",
+    "Sales": "1500.00",
+    "Date": "2024-09-01"
+  },
+  {
+    "Region": "",
+    "Sales": "",
+    "Date": "09/02/24"
+  },
+  {
+    "Region": "East",
+    "Sales": 2100,
+    "Date": ""
+  },
+  {
+    "Region": "West",
+    "Sales": null,
+    "Date": "2024-09-04"
+  },
+
+  {
+    "Region": "North",
+    "Sales": "",
+    "Date": "2024/10/01"
+  },
+  {
+    "Region": "South",
+    "Sales": "900",
+    "Date": ""
+  },
+  {
+    "Region": null,
+    "Sales": 1800,
+    "Date": "10/03/2024"
+  },
+  {
+    "Region": "West",
+    "Sales": "2500.50",
+    "Date": "2024-10-04"
+  }
+]
