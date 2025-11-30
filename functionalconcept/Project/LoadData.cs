@@ -12,7 +12,7 @@ namespace functionalconcept.Project
         {
             // Read the JSON file
             //var sale = File.ReadAllText("D:\\route\\C#\\ConceptProject\\functionalconcept\\DataSet\\dataset.json"); ==> Zenhom path 
-            var sale = File.ReadAllText("E:\\Projects\\ConceptProject\\functionalconcept\\DataSet\\dataset.json");
+            var sale = File.ReadAllText("C:\\Users\\Dell\\source\\repos\\youssefzienhoum\\concept_project_func\\functionalconcept\\DataSet\\dataset.json");
 
             // Deserialize the JSON data
             var salesRecords = JsonConvert.DeserializeObject<List<SaleRecord>>(sale);
