@@ -8,7 +8,7 @@ namespace functionalconcept
         static void Main(string[] args)
         {
             List<SaleRecord>? salesRecords = Project.LoadData.Loading();
-            var standardized = DataStandardization.StandardizeDataset(salesRecords);
+            var standardized = DataStandardization.StandardizeRow(salesRecords);
 
             Console.WriteLine("=== Standardized Data ===");
             foreach (var item in standardized)
