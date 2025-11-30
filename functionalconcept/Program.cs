@@ -1,4 +1,5 @@
-﻿using functionalconcept.model;
+﻿using functionalconcept.Analysis;
+using functionalconcept.model;
 using functionalconcept.Project;
 
 namespace functionalconcept
@@ -8,7 +9,8 @@ namespace functionalconcept
         static void Main(string[] args)
         {
             List<SaleRecord>? salesRecords = Project.LoadData.Loading();
-            //var standardized = DataStandardization.StandardizeDataset(salesRecords);
+
+            var standardized = DataStandardization.StandardizeSaleRecords(salesRecords);
 
             Console.WriteLine("=== Standardized Data ===");
             foreach (var item in standardized)
@@ -17,7 +19,8 @@ namespace functionalconcept
             }
 
             Console.WriteLine("\nEnter Number Of Choice:");
-            Console.WriteLine("1) Aggregate By data Key\n 2)Analyze data");
+            Console.WriteLine("1) Aggregate By data Key\n" +
+                "2)Analyze data\n");
 
             var ch = Convert.ToInt32(Console.ReadLine());
 
@@ -35,6 +38,13 @@ namespace functionalconcept
                         );
                     }
                     break;
+                case 2:
+                    Console.WriteLine($"Mean Sales: {DataAnalysis.Mean(standardized)}");
+                    Console.WriteLine($"Median Sales: {DataAnalysis.Median(standardized)}");
+                    Console.WriteLine($"Variance of Sales: {DataAnalysis.Variance(standardized)}");
+                    //Console.WriteLine($"Correlation of Sales: {DataAnalysis.Correlation(standardized)}");
+                    break;
+
             }
         }
     }

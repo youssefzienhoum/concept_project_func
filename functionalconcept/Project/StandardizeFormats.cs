@@ -8,17 +8,16 @@ namespace functionalconcept.Project;
 
 public static class DataStandardization
 {
-    private static List<SaleRecord> StandardizeRow(List<SaleRecord> raw)
+    public static List<SaleRecord> StandardizeSaleRecords(List<SaleRecord> SaleRecords)
     {
-        foreach (var records in raw)
+        foreach (var record in SaleRecords)
         {
-            var Region = StandardizeRegion(records.Region);
-            var Sales = StandardizeSales(records.Sales);
-            var Date = StandardizeDate(records.Date);
-            var Growth = records.Growth;
+            StandardizeRegion(record.Region);
+            StandardizeSales(record.Sales);
+            StandardizeDate(record.Date);
+            var Growth = record.Growth;
         }
-
-
+        return SaleRecords;
     }
     private static string StandardizeRegion(string region)
     {
@@ -29,6 +28,7 @@ public static class DataStandardization
     {
         if (double.TryParse(sales, out double value))
             return value.ToString("F2", CultureInfo.InvariantCulture);
+        return sales;
     }
 
     private static DateTime StandardizeDate(DateTime? date)
