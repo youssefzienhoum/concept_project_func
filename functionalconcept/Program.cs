@@ -8,7 +8,7 @@ namespace functionalconcept
         static void Main(string[] args)
         {
             List<SaleRecord>? salesRecords = Project.LoadData.Loading();
-            var standardized = DataStandardization.StandardizeDataset(salesRecords);
+            //var standardized = DataStandardization.StandardizeDataset(salesRecords);
 
             Console.WriteLine("=== Standardized Data ===");
             foreach (var item in standardized)
@@ -17,7 +17,7 @@ namespace functionalconcept
             }
 
             Console.WriteLine("\nEnter Number Of Choice:");
-            Console.WriteLine("1) Aggregate By data Key\n");
+            Console.WriteLine("1) Aggregate By data Key\n 2)Analyze data");
 
             var ch = Convert.ToInt32(Console.ReadLine());
 
