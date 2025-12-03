@@ -1,3 +1,4 @@
+using functionalconcept.model;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -5,26 +6,15 @@ using System.Linq;
 
 namespace FunctionalConcept
 {
-    // raw input model (mutable raw, same as imperative)
-    public class Record
-    {
-        public string Region;
-        public object Sales; // could be null, number, or string
-        public string Date;
-    }
-
-    // immutable clean record
-    public record CleanRecord(string Region, decimal Sales, string Date);
-
-    public class FunctionalMissingDataHandler
+    public static class FunctionalMissingDataHandler
     {
         private static readonly string DefaultRegion = "Unknown";
         private static readonly string DefaultDate = "1900-01-01";
 
         // Public API: takes raw list and returns cleaned immutable list
-        public List<CleanRecord> HandleMissingData(List<Record> rawData)
+        public static List<SaleRecord> HandleMissingData(List<SaleRecord> rawData)
         {
-            if (rawData == null || rawData.Count == 0) return new List<CleanRecord>();
+            if (rawData == null || rawData.Count == 0) return new List<SaleRecord>();
 
             // Pure function to parse sales -> decimal?
             decimal? ParseSales(object raw)
@@ -98,9 +88,13 @@ namespace FunctionalConcept
                     var sVal = ParseSales(r?.Sales) ?? mean;
 
                     // date: normalize else default
-                    var dateNorm = NormalizeDate(r?.Date) ?? DefaultDate;
+                    var dateNorm = NormalizeDate(r?.Date.ToString()) ?? DefaultDate;
 
-                    return new CleanRecord(region, sVal, dateNorm);
+                    return new SaleRecord() { 
+                        Region = region, 
+                        Sales = sVal.ToString(CultureInfo.InvariantCulture), 
+                        Date = DateTime.ParseExact(dateNorm, "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                    };
                 })
                 .ToList();
 

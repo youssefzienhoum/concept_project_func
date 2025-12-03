@@ -1,10 +1,9 @@
-﻿using functionalconcept.model;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace functionalconcept.Project
+namespace ImpretiveConceptV2.Project
 {
     public class LoadData
     {
@@ -12,8 +11,8 @@ namespace functionalconcept.Project
         {
             // Read the JSON file
             //var sale = File.ReadAllText("D:\\route\\C#\\ConceptProject\\functionalconcept\\DataSet\\dataset.json"); ==> Zenhom path 
-            //var sale = File.ReadAllText("C:\\Users\\Dell\\source\\repos\\youssefzienhoum\\concept_project_func\\functionalconcept\\DataSet\\dataset.json"); ==> islam
-            var sale = File.ReadAllText("E:\\Projects\\ConcepProject\\functionalconcept\\DataSet\\dataset.json");
+            //var sale = File.ReadAllText("C:\\Users\\Dell\\source\\repos\\youssefzienhoum\\concept_project_func\\functionalconcept\\DataSet\\dataset.json");
+            var sale = File.ReadAllText("E:\\Projects\\ConcepProject\\ImpretiveConceptV2\\DataSet\\dataset.json");
 
             // Deserialize the JSON data
             var salesRecords = JsonConvert.DeserializeObject<List<SaleRecord>>(sale);

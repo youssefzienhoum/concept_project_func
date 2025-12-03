@@ -22,22 +22,27 @@ namespace functionalconcept.Project
                     Console.WriteLine("Enter Sales Threshold:");
                     var threshold = Convert.ToDouble(Console.ReadLine());
                     var filteredData =
-                        (List<dynamic>)new DataTransformation()
+                        new DataTransformation()
                         .FilterBySales(standardized, threshold);
-                    SaveToCsv(filteredData, "filteredData");
+
+                    foreach (var record in filteredData)
+                        Console.WriteLine(record);
                     break;
                 case 2:
                     var growthData =
-                        (List<dynamic>)new DataTransformation()
+                        new DataTransformation()
                         .ComputeGrowth(standardized);
-                    SaveToCsv(growthData, "growthData");
+
+                    foreach (var record in growthData)
+                        Console.WriteLine(record);
                     break;
                 case 3:
                     var AggregateData =
-                        (List<dynamic>)new DataTransformation()
+                        new DataTransformation()
                         .AggregateDataByKey(standardized);
 
-                    SaveToCsv(AggregateData, "AggregateData");
+                    foreach (var record in AggregateData)
+                        Console.WriteLine(record); 
                     break;
                 case 4:
                     Console.WriteLine($"Mean Sales: {DataAnalysis.Mean(standardized)}");
@@ -51,25 +56,36 @@ namespace functionalconcept.Project
         }
 
 
-        public static void SaveToCsv<T>(List<T> data,string filename)
-        {
-            var properties = typeof(T).GetProperties();
-            var sb = new StringBuilder();
+        //public static void SaveToCsv<T>(List<T> data,string filename)
+        //{
+        //    var properties = typeof(T).GetProperties();
+        //    var sb = new StringBuilder();
 
-            // Header
-            sb.AppendLine(string.Join(",", properties.Select(p => p.Name)));
+        //    // Header
+        //    sb.AppendLine(string.Join(",", properties.Select(p => p.Name)));
 
-            // Rows
-            foreach (var item in data)
-            {
-                var values = properties.Select(p => p.GetValue(item, null));
-                sb.AppendLine(string.Join(",", values));
-            }
+        //    // Rows
+        //    foreach (var item in data)
+        //    {
+        //        var values = properties.Select(p => p.GetValue(item, null));
+        //        sb.AppendLine(string.Join(",", values));
+        //    }
 
-            File.WriteAllText(filePath+@$"\{filename}", sb.ToString());
-        }
+        //    //WriteFileSafely(filePath+@$"\{filename}", sb.ToString());
+        //    File.WriteAllText(filePath+@$"\{filename}", sb.ToString());
+        //}
 
+        ////public static void WriteFileSafely(string filePath, string content)
+        //{
+        //    string? directory = Path.GetDirectoryName(filePath);
 
+        //    // Create directory if needed
+        //    if (!Directory.Exists(directory))
+        //        Directory.CreateDirectory(directory);
+
+        //    // Just write the file — WriteAllText already creates it if missing
+        //    File.WriteAllText(filePath, content);
+        //}
 
     }
 }

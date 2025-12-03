@@ -9,24 +9,22 @@ namespace functionalconcept.Project
 {
     public class DataTransformation
     {
-        public List<object> AggregateDataByKey(List<SaleRecord> saleRecords)
+        public List<AggregatedRegionSales> AggregateDataByKey(List<SaleRecord> saleRecords)
         {
-            var result = saleRecords.GroupBy(r => r.Region)
-            .Select(g => new
+            return saleRecords.GroupBy(r => r.Region)
+            .Select(g => new AggregatedRegionSales
             {
                 Region = g.Key,
-                TotalSales = g.Sum(x => Convert.ToInt32(x.Sales))
+                TotalSales = g.Sum(x => (int)Convert.ToDecimal(x.Sales))
             })
             .ToList()!;
-
-            return result.Cast<object>().ToList();
         } 
 
-        public List<object> FilterBySales(List<SaleRecord> saleRecords, double threshold)
+        public List<SaleRecord> FilterBySales(List<SaleRecord> saleRecords, double threshold)
         {
             var result = saleRecords
                 .Where(r => double.TryParse(r.Sales, out double s) && s > threshold)
-                .Select(r => new
+                .Select(r => new SaleRecord
                 {
                     Region = r.Region,
                     Sales = r.Sales,
@@ -34,16 +32,16 @@ namespace functionalconcept.Project
                 })
                 .ToList();
 
-            return result.Cast<object>().ToList();
+            return result.ToList();
         }
 
-        public List<object> ComputeGrowth(List<SaleRecord> saleRecords)
+        public List<SaleRecord> ComputeGrowth(List<SaleRecord> saleRecords)
         {
             var result = saleRecords
                 .Select(r =>
                 {
                     double.TryParse(r.Sales, out double s);
-                    return new
+                    return new SaleRecord
                     {
                         Region = r.Region,
                         Sales = r.Sales,
@@ -53,7 +51,7 @@ namespace functionalconcept.Project
                 })
                 .ToList();
 
-            return result.Cast<object>().ToList();
+            return result.ToList();
         }
 
     }

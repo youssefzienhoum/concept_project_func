@@ -1,6 +1,7 @@
 ﻿using functionalconcept.Analysis;
 using functionalconcept.model;
 using functionalconcept.Project;
+using FunctionalConcept;
 
 namespace functionalconcept
 {
@@ -9,8 +10,8 @@ namespace functionalconcept
         static void Main(string[] args)
         {
             List<SaleRecord>? salesRecords = LoadData.Loading();
-
-            var standardized = DataStandardization.StandardizeSaleRecords(salesRecords);
+            var CleanedData = FunctionalMissingDataHandler.HandleMissingData(salesRecords);
+            var standardized = DataStandardization.StandardizeSaleRecords(CleanedData);
 
 
             while (true)
