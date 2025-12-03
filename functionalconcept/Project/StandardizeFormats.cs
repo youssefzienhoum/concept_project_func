@@ -15,7 +15,6 @@ public static class DataStandardization
             StandardizeRegion(record.Region);
             StandardizeSales(record.Sales);
             StandardizeDate(record.Date);
-            var Growth = record.Growth;
         }
         return SaleRecords;
     }

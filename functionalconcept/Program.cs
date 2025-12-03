@@ -8,43 +8,26 @@ namespace functionalconcept
     {
         static void Main(string[] args)
         {
-            List<SaleRecord>? salesRecords = Project.LoadData.Loading();
+            List<SaleRecord>? salesRecords = LoadData.Loading();
 
             var standardized = DataStandardization.StandardizeSaleRecords(salesRecords);
 
-            Console.WriteLine("=== Standardized Data ===");
-            foreach (var item in standardized)
+
+            while (true)
             {
-                Console.WriteLine(item);
-            }
+                Console.WriteLine("\nEnter Number Of Choice:");
+                Console.WriteLine("1) Filter By Sales\n" +
+                    "2) Compute Growth\n" +
+                    "3) Aggregate By data Key\n" +
+                    "4)Analyze data\n" +
+                    "5) Exit");
 
-            Console.WriteLine("\nEnter Number Of Choice:");
-            Console.WriteLine("1) Aggregate By data Key\n" +
-                "2)Analyze data\n");
+                var ch = Convert.ToInt32(Console.ReadLine());
 
-            var ch = Convert.ToInt32(Console.ReadLine());
-
-            switch (ch)
-            {
-                case 1:
-                    var data =
-                        (List<dynamic>)new DataTransformation()
-                        .AggregateDataByKey(standardized);
-
-                    foreach (var region in data)
-                    {
-                        Console.WriteLine(
-                            $"Region : {region.Region} : TotalSales : {region.TotalSales}"
-                        );
-                    }
-                    break;
-                case 2:
-                    Console.WriteLine($"Mean Sales: {DataAnalysis.Mean(standardized)}");
-                    Console.WriteLine($"Median Sales: {DataAnalysis.Median(standardized)}");
-                    Console.WriteLine($"Variance of Sales: {DataAnalysis.Variance(standardized)}");
-                    //Console.WriteLine($"Correlation of Sales: {DataAnalysis.Correlation(standardized)}");
+                if (ch == 5)
                     break;
 
+                OutputData.ShowData(standardized, ch);
             }
         }
     }
