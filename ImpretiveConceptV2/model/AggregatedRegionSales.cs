@@ -9,6 +9,10 @@ namespace ImpretiveConceptV2.Project
     public class AggregatedRegionSales
     {
         public string Region { get; set; }
-        public int TotalSales { get; set; }
+        public decimal TotalSales { get; set; }
+        public override string ToString()
+        {
+            return $"Region: {Region}, TotalSales: {TotalSales}";
+        }
     }
 }

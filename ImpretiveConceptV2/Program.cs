@@ -1,8 +1,9 @@
-﻿using ImpretiveConceptV2.Project;
+﻿using ImperativeConcept;
+using ImpretiveConceptV2.Project;
 
 List<SaleRecord>? salesRecords = LoadData.Loading();
-
-var standardized = DataStandardizationImperative.StandardizeDataset(salesRecords);
+var CleanedData = ImperativeMissingDataHandler.HandleMissingData(salesRecords);
+var standardized = DataStandardizationImperative.StandardizeDataset(CleanedData);
 
 
 while (true)

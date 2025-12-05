@@ -10,12 +10,12 @@ namespace ImpretiveConceptV2.Project
     {
         public List<AggregatedRegionSales> AggregateDataByKey_Imperative(List<SaleRecord> saleRecords)
         {
-            Dictionary<string, int> regionSales = new Dictionary<string, int>();
+            Dictionary<string, decimal> regionSales = new Dictionary<string, decimal>();
 
             foreach (var record in saleRecords)
             {
                 var region = record.Region;
-                int sales = Convert.ToInt32(record.Sales);
+                decimal sales = Convert.ToDecimal(record.Sales);
 
                 if (regionSales.ContainsKey(region))
                 {

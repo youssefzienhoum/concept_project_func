@@ -4,8 +4,6 @@ namespace ImpretiveConceptV2.Project
 {
     public static class OutputData
     {
-        private const string filePath = @"E:\Projects\ConcepProject\ImpretiveConceptV2\OutputFiles\";
-
         public static void ShowData(List<SaleRecord> standardized, int ch)
         {
             switch (ch)

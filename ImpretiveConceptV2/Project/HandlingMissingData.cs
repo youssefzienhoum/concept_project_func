@@ -5,29 +5,14 @@ using System.Globalization;
 
 namespace ImperativeConcept
 {
-    // raw input model (mutable)
-    public class Record
-    {
-        public string Region;
-        public object Sales; // could be null, number, or string
-        public string Date;  // raw date string
-    }
 
-    // cleaned output (mutable too — stays simple)
-    public class CleanRecord
-    {
-        public string Region2;
-        public decimal Sales2;
-        public string Date2;
-    }
-
-    public class ImperativeMissingDataHandler
+    public static class ImperativeMissingDataHandler
     {
         private static readonly string DefaultRegion = "Unknown";
         private static readonly string DefaultDate = "1900-01-01";
 
         // Public API
-        public List<SaleRecord> HandleMissingData(List<SaleRecord> rawData)
+        public static List<SaleRecord> HandleMissingData(List<SaleRecord> rawData)
         {
             if (rawData == null) return new List<SaleRecord>();
 
@@ -37,10 +22,13 @@ namespace ImperativeConcept
 
             foreach (var r in rawData)
             {
-                decimal s = ParseSales(r?.Sales);
+                decimal? s = ParseSales(r.Sales);  
                 parsedSales.Add(s);
-                if (s.HasValue) validSales.Add(s.Value);
+
+                if (s.HasValue)
+                    validSales.Add(s.Value);
             }
+
 
             // 2) compute mean (fallback to 0 if none)
             decimal mean = 0m;
@@ -52,33 +40,36 @@ namespace ImperativeConcept
             }
 
             // 3) Second pass: build cleaned list, apply defaults and normalize date
-            var cleaned = new List<CleanRecord>(rawData.Count);
+            var cleaned = new List<SaleRecord>(rawData.Count);
+
             for (int i = 0; i < rawData.Count; i++)
             {
                 var r = rawData[i];
-                var cr = new CleanRecord();
+                var cr = new SaleRecord();
 
                 // Region
-                if (string.IsNullOrWhiteSpace(r?.Region))
-                    cr.Region = DefaultRegion;
+                cr.Region = string.IsNullOrWhiteSpace(r?.Region)
+                                ? DefaultRegion
+                                : r.Region.Trim();
+
+                // Sales: convert back to string
+                cr.Sales = (parsedSales[i] ?? mean).ToString();
+
+                // Date handling
+                var normalized = NormalizeDate(r?.Date.ToString()!);
+
+                if (normalized != null)
+                    cr.Date = DateTime.ParseExact(normalized, "yyyy-MM-dd", CultureInfo.InvariantCulture);
                 else
-                    cr.Region = r.Region.Trim();
-
-                // Sales: if parsed value exists use it else use mean
-                cr.Sales = parsedSales[i] ?? mean;
-
-                // Date: normalize, if fail use default
-                var normalized = NormalizeDate(r?.Date);
-                cr.Date = normalized ?? DefaultDate;
+                    cr.Date = DateTime.ParseExact(DefaultDate, "yyyy-MM-dd", CultureInfo.InvariantCulture);
 
                 cleaned.Add(cr);
             }
-
             return cleaned;
         }
 
         // Try to parse sales from various possible raw forms
-        private decimal? ParseSales(object raw)
+        private static decimal? ParseSales(object raw)
         {
             if (raw == null) return null;
 
@@ -110,7 +101,7 @@ namespace ImperativeConcept
         }
 
         // Try to parse different date formats; return ISO string or null if fail
-        private string NormalizeDate(string rawDate)
+        private static string NormalizeDate(string rawDate)
         {
             if (string.IsNullOrWhiteSpace(rawDate)) return null;
 
