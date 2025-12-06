@@ -40,5 +40,58 @@ namespace ImpretiveConceptV2.Project
 
             return result;
         }
+
+        public List<SaleRecord> FilterBySales_Imperative(List<SaleRecord> saleRecords, double threshold)
+        {
+            List<SaleRecord> result = new List<SaleRecord>();
+
+            foreach (SaleRecord r in saleRecords)
+            {
+                double salesValue;
+
+                if (double.TryParse(r.Sales, out salesValue))
+                {
+                    if (salesValue > threshold)
+                    {
+                        SaleRecord record = new SaleRecord
+                        {
+                            Region = r.Region,
+                            Sales = r.Sales,
+                            Date = r.Date
+                        };
+
+                        result.Add(record);
+                    }
+                }
+            }
+
+            return result;
+        }
+
+        public List<SaleRecord> ComputeGrowth_Imperative(List<SaleRecord> saleRecords)
+        {
+            List<SaleRecord> result = new List<SaleRecord>();
+
+            foreach (SaleRecord r in saleRecords)
+            {
+                double salesValue = 0;
+
+                double.TryParse(r.Sales, out salesValue);
+
+                SaleRecord record = new SaleRecord
+                {
+                    Region = r.Region,
+                    Sales = r.Sales,
+                    Date = r.Date,
+                    Growth = salesValue * 0.10
+                };
+
+                result.Add(record);
+            }
+
+            return result;
+        }
+
+
     }
 }
