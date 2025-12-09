@@ -1,4 +1,5 @@
-﻿using ImperativeConcept;
+﻿using Functional_Data_Processing;
+using ImperativeConcept;
 using ImpretiveConceptV2.Project;
 
 List<SaleRecord>? salesRecords = LoadData.Loading();
@@ -20,5 +21,5 @@ while (true)
     if (ch == 5)
         break;
 
-    OutputData.ShowData(standardized, ch);
+    OutputDataImpretive.ShowData(standardized, ch);
 }

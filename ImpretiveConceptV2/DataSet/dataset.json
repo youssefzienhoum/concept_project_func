@@ -1,7 +1,7 @@
 [
   {
     "Region": "North",
-    "Sales": 1200,
+    "Sales": "1200",
     "Date": "2024-01-01"
   },
   {
@@ -11,12 +11,12 @@
   },
   {
     "Region": "",
-    "Sales": 1500,
+    "Sales": "1500",
     "Date": "2024/01/03"
   },
   {
     "Region": "West",
-    "Sales": 2000,
+    "Sales": "2000",
     "Date": ""
   },
   {
@@ -26,12 +26,12 @@
   },
   {
     "Region": null,
-    "Sales": 1700,
+    "Sales": "1700",
     "Date": "2024-01-06"
   },
   {
     "Region": "East",
-    "Sales": 3000,
+    "Sales":" 3000sd",
     "Date": null
   },
   {
@@ -47,7 +47,7 @@
   },
   {
     "Region": "South",
-    "Sales": 700,
+    "Sales": "700",
     "Date": "02/02/24"
   },
   {
@@ -77,13 +77,13 @@
   },
   {
     "Region": "West",
-    "Sales": 2600,
+    "Sales":" 2wdx600",
     "Date": ""
   },
 
   {
     "Region": "North",
-    "Sales": 1300,
+    "Sales": "1300",
     "Date": "2024-3-01"
   },
   {
@@ -93,7 +93,7 @@
   },
   {
     "Region": "",
-    "Sales": 1600,
+    "Sales": "1600",
     "Date": "2024-03-03"
   },
   {
@@ -140,12 +140,12 @@
   },
   {
     "Region": "South",
-    "Sales": 950,
+    "Sales": "950",
     "Date": ""
   },
   {
     "Region": null,
-    "Sales": 1900,
+    "Sales":" 1900",
     "Date": "05/03/2024"
   },
   {
@@ -171,7 +171,7 @@
   },
   {
     "Region": "East",
-    "Sales": 2000,
+    "Sales": "2000",
     "Date": null
   },
   {

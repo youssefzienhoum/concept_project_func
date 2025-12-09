@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ImpretiveConceptV2.Project
+namespace Functional_Data_Processing
 {
     public class SaleRecord : Object
     {

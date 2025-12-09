@@ -1,10 +1,11 @@
-﻿using functionalconcept.model;
+﻿
+using functionalconcept;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace functionalconcept.Project
+namespace Functional_Data_Processing
 {
     public class LoadData
     {

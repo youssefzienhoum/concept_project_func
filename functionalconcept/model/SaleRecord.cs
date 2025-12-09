@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace functionalconcept.model
+namespace functionalconcept
 {
     public class SaleRecord : Object
     {

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using functionalconcept.model;
 using MathNet.Numerics.Statistics ;
 
 namespace functionalconcept.Analysis;
