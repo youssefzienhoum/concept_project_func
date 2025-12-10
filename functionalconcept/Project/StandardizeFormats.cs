@@ -9,12 +9,16 @@ public static class DataStandardization
 {
     public static List<SaleRecord> StandardizeSaleRecords(List<SaleRecord> SaleRecords)
     {
-        foreach (var record in SaleRecords)
-        {
-            StandardizeRegion(record.Region);
-            StandardizeSales(record.Sales);
-            StandardizeDate(record.Date);
-        }
+        if (SaleRecords == null || SaleRecords.Count == 0)
+            return SaleRecords;
+
+        StandardizeRegion(SaleRecords[0].Region);
+        StandardizeSales(SaleRecords[0].Sales);
+        StandardizeDate(SaleRecords[0].Date);
+
+        if (SaleRecords.Count > 1)
+            StandardizeSaleRecords(SaleRecords.Skip(1).ToList());
+
         return SaleRecords;
     }
     private static string StandardizeRegion(string region)

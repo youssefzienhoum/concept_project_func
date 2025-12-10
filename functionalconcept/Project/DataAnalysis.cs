@@ -7,11 +7,24 @@ namespace functionalconcept.Analysis;
 
 public static class DataAnalysis 
 {
-    
+
     public static double Mean(List<SaleRecord> saleRecords)
     {
-        var salesValues = saleRecords.Select(r => Convert.ToDouble(r.Sales));
-        return Statistics.Mean(salesValues);
+        if (saleRecords == null || saleRecords.Count == 0)
+            return 0;
+
+        double sum = SumSalesRecursive(saleRecords, 0);
+        return sum / saleRecords.Count;
+    }
+
+    private static double SumSalesRecursive(List<SaleRecord> saleRecords, int index)
+    {
+        if (index >= saleRecords.Count)
+        {
+            return 0;
+        }
+
+        return Convert.ToDouble(saleRecords[index].Sales) + SumSalesRecursive(saleRecords, index + 1);
     }
 
     public static double Median(List<SaleRecord> saleRecords)
